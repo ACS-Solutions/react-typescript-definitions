@@ -76,7 +76,11 @@ declare module React {
      * (incomplete)
     */
     export var PropTypes: ReactPropTypes;
-    export var addons: any;
+    export var addons: ReactAddons;
+
+    interface ReactAddons {
+        classSet(classNames: { [name: string]: boolean }): string;
+    }
 
     interface ReactPropTypes {
         'number': PropTypeValidator;
