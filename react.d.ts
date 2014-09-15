@@ -79,7 +79,58 @@ declare module React {
     export var addons: ReactAddons;
 
     interface ReactAddons {
+
+        /**
+         * This function is used to mark string literals representing CSS class names
+         * so that they can be transformed statically. This allows for modularization
+         * and minification of CSS class names.
+         *
+         * @param {string} className to modularize
+         */
+        classSet(className: string): string;
+
+        /**
+         * This function is used to mark string literals representing CSS class names
+         * so that they can be transformed statically. This allows for modularization
+         * and minification of CSS class names.
+         *
+         * @param {object} classNames to modularize, an object of key/values.
+         *                      In the object case, the values are conditions that
+         *                      determine if the className keys should be included.
+         * @return string       Renderable space-separated CSS className.
+         */
         classSet(classNames: { [name: string]: boolean }): string;
+
+        /**
+         * This function is used to mark string literals representing CSS class names
+         * so that they can be transformed statically. This allows for modularization
+         * and minification of CSS class names.
+         *
+         * @param [string ...]  Variable list of classNames in the string case.
+         * @return string       Renderable space-separated CSS className.
+         */
+        classSet(... classNames: string[]): string;
+
+        /**
+         * This is a simple element that wraps all of the components you are interested in animating.
+         */
+        CSSTransitionGroup: ReactComponentFactory<{
+            transitionName: string;
+            transitionEnter?: boolean;
+            transitionLeave?: boolean;
+        }>;
+
+        /**
+         * Sometimes you want to change the props of a child passed to you. Usually
+         * this is to add a CSS class.
+         *
+         * @param {object} child child component you'd like to clone
+         * @param {object} props props you'd like to modify. They will be merged
+         * as if you used `transferPropsTo()`.
+         * @return {object} a clone of child with props merged in.
+         */
+        cloneWithProps<C extends ReactComponent<any, any>>(child: C, props?: {}): C;
+
     }
 
     interface ReactPropTypes {
