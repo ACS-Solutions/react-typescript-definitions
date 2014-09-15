@@ -76,6 +76,7 @@ declare module React {
      * (incomplete)
     */
     export var PropTypes: ReactPropTypes;
+
     export var addons: ReactAddons;
 
     interface ReactAddons {
@@ -130,6 +131,52 @@ declare module React {
          * @return {object} a clone of child with props merged in.
          */
         cloneWithProps<C extends ReactComponent<any, any>>(child: C, props?: {}): C;
+
+    }
+
+    export var Children: ReactChildren;
+
+    interface ReactChildren {
+
+        /**
+         * Invoke func on every immediate child contained within children with 'this' set to context.
+         * If children is a nested object or array it will be traversed: func will never be passed the container objects.
+         *
+         * @param children Children tree container.
+         * @param func forEach function.
+         * @param context Context for func.
+         */
+        forEach(children: any, func: (child: ReactComponent<any, any>, index: number) => void, context?: any): void;
+
+        /**
+         * Invoke func on every immediate child contained within children with 'this' set to context.
+         * If children is a nested object or array it will be traversed: func will never be passed the container objects.
+         * If children is null or undefined returns null or undefined rather than an empty object.
+         *
+         * @param children Children tree container.
+         * @param func map function.
+         * @param context Context for func.
+         * @return Object containing the ordered map of results.
+         */
+        map(children: any, func: (child: ReactComponent<any, any>, index: number) => void, context?: any): {};
+
+        /**
+         * Return the total number of components in children,
+         * equal to the number of times that a callback passed to map or forEach would be invoked.
+         *
+         * @param children Children tree container.
+         * @return The number of children.
+         */
+        count(children: any): number;
+
+        /**
+         * Returns the first child in a collection of children and verifies that there
+         * is only one child in the collection. Throws otherwise.
+         *
+         * @param children Child collection structure.
+         * @return The first and only child contained in the structure.
+         */
+        only(children: any): any;
 
     }
 
