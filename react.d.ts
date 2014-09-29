@@ -71,6 +71,10 @@ declare module React {
      */
     function renderComponentToStaticMarkup(component: ReactComponent<any, any>): string;
 
+    function isValidClass(factory: ReactComponentFactory<any>): boolean;
+
+    function isValidComponent(object: ReactComponent<any, any>): boolean;
+
     /**
      * Built-in Prop Type Validators
      * (incomplete)
