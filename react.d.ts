@@ -477,7 +477,7 @@ declare module React {
         view: Window;
     }
 
-    export interface WheelEvent {
+    export interface WheelEvent extends SyntheticEvent {
         deltaX: number;
         deltaMode: number;
         deltaY: number;
