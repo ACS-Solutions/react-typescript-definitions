@@ -136,6 +136,8 @@ declare module React {
          */
         cloneWithProps<C extends ReactComponent<any, any>>(child: C, props?: {}): C;
 
+        update<T extends {}>(value: T, spec: {}): T;
+
     }
 
     export var Children: ReactChildren;
@@ -162,7 +164,7 @@ declare module React {
          * @param context Context for func.
          * @return Object containing the ordered map of results.
          */
-        map(children: any, func: (child: ReactComponent<any, any>, index: number) => void, context?: any): {};
+        map(children: any, func: (child: ReactComponent<any, any>, index: number) => React.ReactComponent<any, any>, context?: any): {};
 
         /**
          * Return the total number of components in children,
