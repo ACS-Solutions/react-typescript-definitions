@@ -73,7 +73,7 @@ declare module React {
 
     function isValidClass(factory: ReactComponentFactory<any>): boolean;
 
-    function isValidComponent(object: ReactComponent<any, any>): boolean;
+    function isValidComponent(object: any): boolean;
 
     /**
      * Built-in Prop Type Validators
