@@ -1,5 +1,6 @@
-// Type definitions for React v0.10.0
+// Type definitions for React v0.11.2
 // Project: http://facebook.github.io/react/
+// Definitions by: @mike-acs <https://github.com/mike-acs/>
 // Definitions by: @wizzard0 <https://github.com/wizzard0/>
 // Definitions by: @fdecampredon <https://github.com/fdecampredon/>
 // Definitions: https://github.com/wizzard0/react-typescript-definitions/
@@ -71,8 +72,14 @@ declare module React {
      */
     function renderComponentToStaticMarkup(component: ReactComponent<any, any>): string;
 
+    /**
+     * Returns true if object is a valid factory function.
+     */
     function isValidClass(factory: ReactComponentFactory<any>): boolean;
 
+    /**
+     * Returns true if object is a valid component descriptor.
+     */
     function isValidComponent(object: any): boolean;
 
     /**
