@@ -232,6 +232,12 @@ declare module React {
     interface ReactComponent<P, S> {
 
         refs: { [ref: string]: ReactComponent<any, any>; }
+
+        /**
+         * Checks whether or not this component is mounted.
+         */
+        isMounted(): boolean;
+
         /**
          * If this component has been mounted into the DOM, this returns the corresponding native browser DOM element. 
          * This method is useful for reading values out of the DOM, such as form field values and performing DOM measurements.
